@@ -1,0 +1,166 @@
+header {
+  margin-top: 30px;
+  margin-left: 20px;
+  padding: 10px;
+  display: block;
+  font-size: 20px;
+}
+
+body {
+  background-color: rgba(245, 238, 247, 0.911);
+}
+
+#city-search {
+  border: rgba(197, 33, 197, 0.808) solid 5px;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 400px;
+  max-width: 500px;
+  font-family: monospace;
+}
+
+#city-search:hover {
+  background-color: rgba(226, 182, 238, 0.911);
+}
+
+#search-button {
+  border: rgba(197, 33, 197, 0.808) solid 5px;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 100px;
+  max-width: 200px;
+  font-family: monospace;
+  background-color: #ffffff;
+}
+
+#search-button:hover {
+  background-color: rgba(226, 182, 238, 0.911);
+}
+
+#locationButton {
+  border: rgba(197, 33, 197, 0.808) solid 5px;
+  position: relative;
+  left: 900px;
+  bottom: 10px;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 100px;
+  max-width: 200px;
+  font-family: monospace;
+  background-color: #ffffff;
+  font-size: 15px;
+}
+
+#locationButton:hover {
+  background-color: rgba(226, 182, 238, 0.911);
+}
+
+.current:hover {
+  background-color: rgba(226, 182, 238, 0.911);
+}
+
+.current {
+  padding: 10px;
+  max-width: fit-content;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.date {
+  color: rgba(197, 33, 197, 0.808);
+  font-size: 25px;
+  font-family: monospace;
+}
+
+.city {
+  color: rgba(197, 33, 197, 0.808);
+  font-size: 30px;
+  font-family: monospace;
+}
+
+.temperature {
+  color: rgba(197, 33, 197, 0.808);
+  font-size: 25px;
+  font-family: monospace;
+}
+
+.celsius-temp {
+  font-size: 20px;
+  display: inline;
+}
+.farenheit-temp {
+  font-size: 20px;
+  display: inline;
+}
+a {
+  color: rgba(197, 33, 197, 0.808);
+}
+
+.currentweather {
+  border: rgba(238, 27, 27, 0.973) solid 5px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.card-text {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: monospace;
+  display: block;
+  text-align: center;
+  color: rgba(75, 13, 75, 0.808);
+  font-weight: 500;
+}
+
+.current2 {
+  width: 300px;
+  position: relative;
+  right: 50px;
+  display: block;
+}
+
+.container {
+  margin: 0 auto;
+  display: block;
+}
+
+h2 {
+  border: rgba(43, 138, 228, 0.897) solid 5px;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  font-family: monospace;
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.forecast {
+  border: rgba(197, 33, 197, 0.808) solid 5px;
+  margin-top: 30px;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+
+.col {
+  border: rgba(43, 138, 228, 0.897) solid 3px;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.forecast1 {
+  margin: 0;
+  display: block;
+  margin-bottom: 50px;
+}
