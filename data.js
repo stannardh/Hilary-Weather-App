@@ -1,55 +1,69 @@
-let now = new Date();
+function formatDate(timestamp){
+let date = new Date(timestamp);
+let hours = date.getHours();
+let minutes = date.getMinutes();
+if (minutes < 10) {
+minutes = `0${minutes}`
+};
+if (hours < 10) {
+hours = `0${hours}`
+}
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let day = days[date.getDay()];
+return `${day}, ${hours}:${minutes}`
 
-let date = now.getDate();
+}
 
-let day = now.getDay();
 
-let month = now.getMonth();
 
-let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-let currentDay = days[now.getDay()];
+function formatHours(timestamp){
+ let date = new Date(timestamp);
+let hours = date.getHours();
+let minutes = date.getMinutes();
+if (minutes < 10) {
+minutes = `0${minutes}`
+};
+if (hours < 10) {
+hours = `0${hours}`
+}
 
-let months = [
-  "Jan",
-  "Feb",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec"
-];
+ return `${hours}:${minutes}`;
+}
 
-let currentMonth = months[now.getMonth()];
-
-let hour = now.getHours();
-let minutes = now.getMinutes();
-
-let formatDate = `${currentDay}, ${currentMonth} ${date}`;
-let currentTime = `${hour}:${minutes}`;
-let h4 = document.querySelector("h4");
-h4.innerHTML = `${formatDate} ${currentTime}`;
 
 
 //current location weather//
 
-function displayWeatherCondition(response){
-console.log(response)
+
+
+function displayTemperature(response){
+  console.log(response)
 document.querySelector("h5").innerHTML = response.data.name;
-let currentTemperatureMetric = Math.round(response.data.main.temp);
+celsiusTemperature = response.data.main.temp
+let cityElement = document.querySelector("#city");
+cityElement.innerHTML = response.data.name;
 let temperatureElement = document.querySelector("#temperature");
-temperatureElement.innerHTML = `${currentTemperatureMetric}°C`
+temperatureElement.innerHTML = Math.round(celsiusTemperature);
+let descriptionElement = document.querySelector("#description");
+descriptionElement.innerHTML = response.data.weather[0].description;
+let humidityElement = document.querySelector("#humidity");
+humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+let windElement = document.querySelector("#wind");
+windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
+let dateElement = document.querySelector("#date");
+dateElement.innerHTML = formatDate(response.data.dt * 1000);
+let iconElement = document.querySelector("#icon");
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+iconElement.setAttribute("alt", response.data.weather[0].description)
+
+
 }
 
 function searchLocation(position){
 let apiKey ="8f30be199033ade64232dc35e4dc5496"
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayWeatherCondition);
+axios.get(apiUrl).then(displayTemperature);
 }
 
 function getCurrentLocation(event){
@@ -66,8 +80,28 @@ locationButton.addEventListener("click", getCurrentLocation)
 function searchCity(city){
   let searchapiKey = "4c3c671c267c67d5291f03e40c1f4165"
   let searchapiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${searchapiKey}&units=metric`
-  axios.get(searchapiUrl).then(displayWeatherCondition)
+  axios.get(searchapiUrl).then(displayTemperature)
 }
+
+function displayFahrenheit(event){
+event.preventDefault();
+let fahrenheitTemperature = (celsiusTemperature * 9/5) + 32;
+fahrenheitLink.classList.add("active");
+celsiusLink.classList.remove("active");
+let temperatureElement = document.querySelector("#temperature");
+temperatureElement.innerHTML = Math.round(fahrenheitTemperature)
+}
+
+function displayCelsius(event){
+event.preventDefault();
+fahrenheitLink.classList.remove("active");
+celsiusLink.classList.add("active");
+let temperatureElement = document.querySelector("#temperature");
+temperatureElement.innerHTML = Math.round(celsiusTemperature)
+}
+
+let celsiusTemperature = null
+
 
 function handleSubmit(event) {
 event.preventDefault();
@@ -77,3 +111,9 @@ searchCity(city);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);

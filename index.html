@@ -29,77 +29,37 @@
             <div class="currentweather" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="Images/sun.png"
-                            class="current2" alt="Sun">
+                        <img src="" alt="" class="float-left" id="icon"/>
+                            <div class="row" id="description">Weather description</div>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h4 class="date">Sunday 6th December</h5>
-                                <h5 id="city">Marbella</h5>
-                                <p class="temperature" id="temperature">18°C</p>
-
-                                <span class="temp-selector">
-                                    <a href="#" id="celsius-link">
-                                        °C
-                                    </a>
-                                    <a href="#" id="fahrenheit-link">
-                                        °F</a>
+                            <h4 id="date"></h5>
+                                <h5 id="city"></h5>
+                                <div class="clearfix weather-temperature">
+                                    <img src="" alt="" class="float-left" id="icon" />
+                                    <strong id="temperature">12</strong>
+                                    <span class="units"><a href="#" id="celsius-link" class="active">°C</a> | <a href="#"
+                                            id="fahrenheit-link">°F</a></span>
+                                </div>
                                 </span>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <div class="col-9">
+                                    <ul class="weatherDescription">
+                                        <li id="humidity">Humidity</li>
+                                        <li id="wind">Wind speed</li>
+                                    </ul>
+                                </div>
+                                <p class="card-text"><small class="text-muted" id="lastUpdate">Last updated 3 mins ago</small></p>
                         </div>
+                        
                     </div>
+                    <small>
+                        <a href="https://github.com/stannardh/vanilla-weather-app" target="_blank">App by Hilary Stannard</a>
+                    </small>
                 </div>
             </div>
         </div>
-
-
-
-
-
-        <div class="forecast1">
-
-            <div class="forecast">
-                <h2>
-                    5 Day Forecast
-                </h2>
-                <div class="row row-cols-8">
-                    <div class="col"><img
-                            src="Images/rain.png"
-                            class="card-img" alt="rain">
-                        <div class="card-body">
-                            <p class="card-text">Monday</p>
-                        </div>
-                    </div>
-                    <div class="col"><img
-                            src="Images/rain.png"
-                            class="card-img" alt="rain">
-                        <div class="card-body">
-                            <p class="card-text">Tuesday</p>
-                        </div>
-                    </div>
-                    <div class="col"><img
-                            src="Images/sun.png"
-                            class="card-img" alt="Sun">
-                        <div class="card-body">
-                            <p class="card-text">Wednesday</p>
-                        </div>
-                    </div>
-                    <div class="col"><img
-                            src="Images/snow.png"
-                            class="card-img" alt="snow">
-                        <div class="card-body">
-                            <p class="card-text">Thursday</p>
-                        </div>
-                    </div>
-                    <div class="col"><img
-                            src="Images/rain.png"
-                            class="card-img" alt="rain">
-                        <div class="card-body">
-                            <p class="card-text">Friday</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
 
             <script src="data.js"></script>
 
